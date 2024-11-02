@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     {
         dialogueUI = GetComponent<DialogueUI>();
         StartCoroutine(GoThroughEvents());
-        
     }
 
 
