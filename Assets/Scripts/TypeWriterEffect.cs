@@ -14,8 +14,9 @@ public class TypeWriterEffect : MonoBehaviour
 
     private IEnumerator TypeText(string textToType, TMP_Text textlabel)
     {
+        textlabel.enabled = true;   
         textlabel.text = string.Empty;
-        textlabel.enabled = true;
+        
         float t = 0;
         int charIndex = 0;
         while (charIndex < textToType.Length)

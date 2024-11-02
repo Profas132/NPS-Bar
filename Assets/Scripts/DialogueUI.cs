@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class DialogueUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text textlabel;
     private TypeWriterEffect typeWriterEffect;
-    [SerializeField] private DialogueObject testDialogue;
+    [SerializeField] private DialogueObject dialogueObject;
+    [SerializeField] private TMP_Text[] TMP_Texts;
 
     private void Start()
     {
         typeWriterEffect = GetComponent<TypeWriterEffect>();
-        ShowDialogue(testDialogue);
+        ShowDialogue(dialogueObject);
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
@@ -22,9 +22,9 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
     {
-        foreach (string dialogue in dialogueObject.dialogue)
+        for (int i = 0; i < dialogueObject.dialogue.Length; i++)
         {
-            yield return typeWriterEffect.Run(dialogue, textlabel);
+            yield return typeWriterEffect.Run(dialogueObject.dialogue[i], TMP_Texts[dialogueObject.speakersId[i]]);
         }
     }
 
