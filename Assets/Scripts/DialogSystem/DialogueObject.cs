@@ -13,6 +13,6 @@ public class DialogueObject : ScriptableObject
 {
 
     [SerializeField, TextArea] public string[] dialogue;
-    [SerializeField, TextArea] public int[] speakersId;
+    [SerializeField] public int[] speakersId;
 
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class TypeWriterEffect : MonoBehaviour
 {
     [SerializeField] private float typewriterSpeed = 50f;
-
+    public bool InWork = false;
     public Coroutine Run(string textToType, TMP_Text textlabel)
     {
         return StartCoroutine(TypeText(textToType, textlabel));
@@ -14,7 +14,8 @@ public class TypeWriterEffect : MonoBehaviour
 
     private IEnumerator TypeText(string textToType, TMP_Text textlabel)
     {
-        textlabel.enabled = true;   
+        InWork = true;
+        textlabel.GetComponentInParent<CanDissapear>().Show();
         textlabel.text = string.Empty;
         
         float t = 0;
@@ -29,8 +30,14 @@ public class TypeWriterEffect : MonoBehaviour
 
             yield return null;
         }
-        yield return new WaitForSeconds(3);
-        textlabel.enabled = false; // 
+        while (!Input.anyKey)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(1);
+        textlabel.GetComponentInParent<CanDissapear>().Hide();
+        textlabel.text = string.Empty;
+        InWork = false;
     }
 
 }

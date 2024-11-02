@@ -1,31 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class DialogueUI : MonoBehaviour
 {
     private TypeWriterEffect typeWriterEffect;
     [SerializeField] private DialogueObject dialogueObject;
     [SerializeField] private TMP_Text[] TMP_Texts;
+    private int linesSaid = -1;
 
     private void Start()
     {
         typeWriterEffect = GetComponent<TypeWriterEffect>();
-        ShowDialogue(dialogueObject);
+        //ShowDialogue();
     }
 
-    public void ShowDialogue(DialogueObject dialogueObject)
+    public Coroutine ShowDialogue()
     {
-        StartCoroutine(StepThroughDialogue(dialogueObject));
+        linesSaid++;
+        Debug.Log("52");
+        return typeWriterEffect.Run(dialogueObject.dialogue[linesSaid], TMP_Texts[dialogueObject.speakersId[linesSaid]]);
+        
     }
-
-    private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
-    {
-        for (int i = 0; i < dialogueObject.dialogue.Length; i++)
-        {
-            yield return typeWriterEffect.Run(dialogueObject.dialogue[i], TMP_Texts[dialogueObject.speakersId[i]]);
-        }
-    }
-
+    
 }
