@@ -23,7 +23,6 @@ public class pointAndClickMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         if (Input.GetMouseButton(0) && CanMove)
         {            
             targetPosition = mousePosition;
