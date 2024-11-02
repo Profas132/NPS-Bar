@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -11,16 +12,25 @@ public class pointAndClickMove : MonoBehaviour
 {
     public Vector2 mousePosition;
     public Vector2 targetPosition;
+    public static bool CanMove;
     [SerializeField][Range(0, 0.1f)] private float speed;
+
+    private void Start()
+    {
+        CanMove = false;
+        targetPosition = transform.position;
+    }
 
     private void FixedUpdate()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetMouseButtonDown(0))
-        {
+        
+        if (Input.GetMouseButton(0) && CanMove)
+        {            
             targetPosition = mousePosition;
             Debug.Log(targetPosition);
         }
+        
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
     }
 }
