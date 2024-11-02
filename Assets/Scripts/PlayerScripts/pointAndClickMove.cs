@@ -13,7 +13,7 @@ public class pointAndClickMove : MonoBehaviour
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             Vector2 targetPosition = mousePosition;
             if (this.transform.position.x != targetPosition.x)
