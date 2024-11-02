@@ -1862,7 +1862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePosition: {x: 0, y: 0}
   targetPosition: {x: 0, y: 0}
-  speed: 1.43
+  speed: 0.0096
 --- !u!50 &1574899947
 Rigidbody2D:
   serializedVersion: 4
