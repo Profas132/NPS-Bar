@@ -6,13 +6,17 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName ="Dialogue/DialogueObject")]
+[CreateAssetMenu(menuName = "Dialogue/DialogueObject")]
 
-
-public class DialogueObject : ScriptableObject 
+public class DialogueObject : ScriptableObject
 {
-
-    [SerializeField, TextArea] public string[] dialogue;
-    [SerializeField] public int[] speakersId;
-
+    public dialogueClass[] dialogueClasses;
 }
+
+[Serializable]
+public class dialogueClass
+{
+    public string dialogue;
+    public int speakersId;
+}
+

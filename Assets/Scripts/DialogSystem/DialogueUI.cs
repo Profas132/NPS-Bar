@@ -22,8 +22,6 @@ public class DialogueUI : MonoBehaviour
     {
         linesSaid++;
         Debug.Log("52");
-        return typeWriterEffect.Run(dialogueObject.dialogue[linesSaid], TMP_Texts[dialogueObject.speakersId[linesSaid]]);
-        
+        return typeWriterEffect.Run(dialogueObject.dialogueClasses[linesSaid].dialogue, TMP_Texts[dialogueObject.dialogueClasses[linesSaid].speakersId]);
     }
-    
 }
