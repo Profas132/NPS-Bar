@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{af83e1d9-3437-483c-981f-b9367266aeb1}">
+		<property name="name">
+			<value>Music</value>
+		</property>
+		<relationship name="folder">
+			<destination>{1ab520a6-5ad4-4821-9194-b2fac05af1d2}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{cc2e8f38-92bb-4a2f-b129-be55c87ad243}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{cc2e8f38-92bb-4a2f-b129-be55c87ad243}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Track 1</value>
+			<value>Track 2</value>
+			<value>Track 3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{b0c84c78-74f6-42d4-987b-9f17c40e3c68}</destination>
+		</relationship>
+	</object>
+	<object class="RandomizerModulator" id="{b0c84c78-74f6-42d4-987b-9f17c40e3c68}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>cursorPosition</value>
+		</property>
+		<property name="amount">
+			<value>3</value>
+		</property>
+	</object>
+</objects>
