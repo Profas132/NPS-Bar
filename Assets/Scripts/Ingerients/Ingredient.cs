@@ -8,7 +8,7 @@ public class Ingredient
     public Sprite PhotoOfIngerdient;
     public string NameOfIngerdient;
     //public int tagOfIngredient;
-    public Category categoryOfIngredients;
+    // Category categoryOfIngredients;
 
-    public enum Category {Myaso,Ovosh,Fruct};
+    //public enum Category {Myaso,Ovosh,Fruct};
 }

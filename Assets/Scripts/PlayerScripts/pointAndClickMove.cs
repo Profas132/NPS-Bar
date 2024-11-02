@@ -12,12 +12,11 @@ public class pointAndClickMove : MonoBehaviour
 {
     public Vector2 mousePosition;
     public Vector2 targetPosition;
-    public static bool CanMove;
+    public static bool CanMove = false;
     [SerializeField][Range(0, 0.1f)] private float speed;
 
     private void Start()
     {
-        CanMove = false;
         targetPosition = transform.position;
     }
 
