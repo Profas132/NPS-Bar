@@ -31,6 +31,10 @@ public class movePoints : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && LastClick == this.GetComponent<movePoints>())
         {
+
+
+            GetComponent<AudioSource>().Play();
+
             TypeWriterEffect.currentIngredient.ingredientType = ingredientType;
             if (getIce)
             {

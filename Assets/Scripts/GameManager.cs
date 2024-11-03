@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform barStage1;
     [SerializeField] private Transform barStage2;
 
-    private void Awake()
+    private void Start()
     {
         EnemyMovement.outdoor = outdoor;
         EnemyMovement.barStage1 = barStage1;
@@ -35,22 +35,26 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GoThroughEvents()
     {
+        
         foreach (var e in events)
-        {
-            
+        {            
             if (e.EventType == EventType.GoToTable1)
-            {                
+            {
+                SoundManager.instance.playDoorBellSound();
                 yield return e.characters.GetComponent<EnemyMovement>().GoToTable1();   
             }
             if (e.EventType == EventType.GoToTable2)
             {
+                SoundManager.instance.playDoorBellSound();
                 yield return e.characters.GetComponent<EnemyMovement>().GoToTable2();
             }
 
             if (e.EventType == EventType.Order)
             {
+                
                 for (int i = 0; i < e.dialogueObject.dialogueClasses.Length; i++)
                 {
+                    SoundManager.instance.playDialogueSound();
                     yield return e.characters.GetComponent<EnemyMovement>().Order(dialogueUI, e);
                 }
                 
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
             if (e.EventType == EventType.GoOut)
             {
                 yield return e.characters.GetComponent<EnemyMovement>().GoOut();
+                SoundManager.instance.playDoorBellSound();
             }
         }
     }
