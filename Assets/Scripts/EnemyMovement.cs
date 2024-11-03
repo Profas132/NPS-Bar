@@ -31,9 +31,7 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator StartToOrder(DialogueUI dialogueUI, Event events)
     {
-        dialogueUI.OrderControl(events.TMP_Texts, events.dialogueObject);
-
-        yield return null;
+        yield return dialogueUI.OrderControl(events);
     }
 
     public Coroutine GoOut()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using static UnityEditor.Progress;
 
@@ -17,17 +18,17 @@ public class DialogueUI : MonoBehaviour
         //ShowDialogue();
     }
 
-    public Coroutine ShowDialogue(TMP_Text texts, DialogueObject dialogueObject)
+    public Coroutine ShowDialogue(Event _event)
     {
         linesSaid++;
         Debug.Log("52");
-        return typeWriterEffect.Run(dialogueObject.dialogueClasses[linesSaid].dialogue, texts);
+        return typeWriterEffect.Run(_event.dialogueObject.dialogueClasses[linesSaid].dialogue, _event.TMP_Texts, _event.dialogueObject.dialogueClasses[linesSaid]);
     }
 
-    public Coroutine OrderControl(TMP_Text texts, DialogueObject dialogueObject)
+    public Coroutine OrderControl(Event _event)
     {
         linesSaid++;
         Debug.Log("Заказ");
-        return typeWriterEffect.Run(dialogueObject.dialogueClasses[linesSaid].dialogue, texts);
+        return typeWriterEffect.Run(_event.dialogueObject.dialogueClasses[linesSaid].dialogue, _event.TMP_Texts, _event.dialogueObject.dialogueClasses[linesSaid]);
     }
 }

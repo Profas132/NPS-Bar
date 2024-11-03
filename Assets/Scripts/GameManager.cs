@@ -21,11 +21,13 @@ public class GameManager : MonoBehaviour
     private DialogueUI dialogueUI;
     [SerializeField] private Transform outdoor;
     [SerializeField] private Transform barStage;
+    [SerializeField] private Transform barStage2;
 
     private void Awake()
     {
         EnemyMovement.outdoor = outdoor;
         EnemyMovement.barStage = barStage;
+        EnemyMovement.barStage = barStage2;
 
         dialogueUI = GetComponent<DialogueUI>();
         StartCoroutine(GoThroughEvents());
@@ -37,7 +39,7 @@ public class GameManager : MonoBehaviour
         {
             if (e.EventType == EventType.Talk)
             {
-                yield return dialogueUI.ShowDialogue(e.TMP_Texts, e.dialogueObject);
+                yield return dialogueUI.ShowDialogue(e);
             }
 
             if (e.EventType == EventType.GoToTable)

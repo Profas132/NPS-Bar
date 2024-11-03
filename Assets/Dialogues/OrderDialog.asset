@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73527ca97f477b142aee1eec0290a1ef, type: 3}
   m_Name: OrderDialog
   m_EditorClassIdentifier: 
-  dialogueClasses: []
+  dialogueClasses:
+  - dialogue: "\u0445\u0430\u0447\u0443 \u043F\u0438\u0446\u0443"
+    type: 1
+    ingredient: {fileID: 11400000, guid: 38b347765cd9b7a4d857ff9f53d484e7, type: 2}
