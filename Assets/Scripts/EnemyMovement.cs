@@ -8,18 +8,28 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     static public Transform outdoor;
-    static public Transform barStage;
+    static public Transform barStage1;
+    static public Transform barStage2;
     [SerializeField] float enemySpeed = 0.01f;
 
-    public Coroutine GoToTable()
+    public Coroutine GoToTable1()
     {        
-        return StartCoroutine(goToTable());
+        return StartCoroutine(goToSpot(barStage1));
     }
 
-    private IEnumerator goToTable()
+    public Coroutine GoToTable2()
     {
-        while (Vector2.Distance(transform.position, barStage.position) > 0.01f) {            
-            transform.position = Vector2.MoveTowards(transform.position, barStage.position, enemySpeed * Time.deltaTime);
+        return StartCoroutine(goToSpot(barStage2));
+    }
+
+    public Coroutine GoOut()
+    {
+        return StartCoroutine(goToSpot(outdoor));
+    }
+    private IEnumerator goToSpot(Transform spot)
+    {
+        while (Vector2.Distance(transform.position, spot.position) > 0.01f) {            
+            transform.position = Vector2.MoveTowards(transform.position, spot.position, enemySpeed * Time.deltaTime);
             yield return null;
         }
     }
@@ -34,17 +44,7 @@ public class EnemyMovement : MonoBehaviour
         yield return dialogueUI.OrderControl(events);
     }
 
-    public Coroutine GoOut()
-    {
-        return StartCoroutine(nameof(goOut));
-    }
+    
 
-    private IEnumerator goOut()
-    {
-        while (Vector2.Distance(transform.position, outdoor.position) > 0.01f)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, outdoor.position, enemySpeed * Time.deltaTime);
-            yield return null;
-        }
-    }
+    
 }

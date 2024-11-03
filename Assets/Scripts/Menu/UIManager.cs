@@ -16,9 +16,6 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         slider.value = PlayerPrefs.GetFloat("SoundValue", 50f) / 100;
-
-
-
     }
 
     public void OnStartClick()

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class movePoints : MonoBehaviour
 {
-    static movePoints LastClick;
+    public static movePoints LastClick;
+    [SerializeField] bool getIce;
+    [SerializeField] IngredientType ingredientType;
+
 
     private void OnMouseOver()
     {
@@ -28,7 +31,12 @@ public class movePoints : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && LastClick == this.GetComponent<movePoints>())
         {
-            Debug.Log("Налил воды");
+            TypeWriterEffect.currentIngredient.ingredientType = ingredientType;
+            if (getIce)
+            {
+                TypeWriterEffect.currentIngredient.withIce = !TypeWriterEffect.currentIngredient.withIce;
+            }
+            
         }
     }
 }

@@ -8,6 +8,13 @@ public class TypeWriterEffect : MonoBehaviour
     [SerializeField] private float typewriterSpeed = 50f;
     public bool InWork = false;
 
+    public static Ingredient currentIngredient;
+
+    private void Start()
+    {
+        currentIngredient = new Ingredient();        
+    }
+
     public Coroutine Run(string textToType, TMP_Text textlabel, dialogueClass dialogue)
     {
         return StartCoroutine(TypeText(textToType, textlabel, dialogue));
@@ -15,6 +22,8 @@ public class TypeWriterEffect : MonoBehaviour
 
     private IEnumerator TypeText(string textToType, TMP_Text textlabel, dialogueClass dialogue)
     {
+        currentIngredient.ingredientType = IngredientType.none;
+        currentIngredient.withIce = false;
         InWork = true;
         textlabel.GetComponentInParent<CanDissapear>().Show();
         textlabel.text = string.Empty;
@@ -35,7 +44,7 @@ public class TypeWriterEffect : MonoBehaviour
 
         if (dialogue.type == DialogType.order)
         {
-            while (checkIngredient(dialogue.ingredient))
+            while (!checkIngredient(dialogue.ingredient))
             {
                 yield return null;
             }
@@ -48,15 +57,18 @@ public class TypeWriterEffect : MonoBehaviour
             }
         }
         
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.2f);
         textlabel.GetComponentInParent<CanDissapear>().Hide();
         textlabel.text = string.Empty;
         InWork = false;
     }
 
-    public bool checkIngredient(IngredientGen ingredient)
+    public bool checkIngredient(Ingredient ingredient)
     {
-        
+        if (currentIngredient.withIce == ingredient.withIce && currentIngredient.ingredientType == ingredient.ingredientType && movePoints.LastClick.CompareTag("Finish"))
+        {
+            return true;
+        }
         return false;
     }
 }

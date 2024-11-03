@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum EventType {GoToTable, GoOut, Talk, Order}
+public enum EventType {GoToTable1, GoToTable2, GoOut, Order}
 
 [Serializable]
 public class Event
@@ -20,14 +20,14 @@ public class GameManager : MonoBehaviour
     public Event[] events;
     private DialogueUI dialogueUI;
     [SerializeField] private Transform outdoor;
-    [SerializeField] private Transform barStage;
+    [SerializeField] private Transform barStage1;
     [SerializeField] private Transform barStage2;
 
     private void Awake()
     {
         EnemyMovement.outdoor = outdoor;
-        EnemyMovement.barStage = barStage;
-        EnemyMovement.barStage = barStage2;
+        EnemyMovement.barStage1 = barStage1;
+        EnemyMovement.barStage2 = barStage2;
 
         dialogueUI = GetComponent<DialogueUI>();
         StartCoroutine(GoThroughEvents());
@@ -37,20 +37,23 @@ public class GameManager : MonoBehaviour
     {
         foreach (var e in events)
         {
-            if (e.EventType == EventType.Talk)
-            {
-                yield return dialogueUI.ShowDialogue(e);
+            
+            if (e.EventType == EventType.GoToTable1)
+            {                
+                yield return e.characters.GetComponent<EnemyMovement>().GoToTable1();   
             }
-
-            if (e.EventType == EventType.GoToTable)
+            if (e.EventType == EventType.GoToTable2)
             {
-                Debug.Log(events);
-                yield return e.characters.GetComponent<EnemyMovement>().GoToTable();   
+                yield return e.characters.GetComponent<EnemyMovement>().GoToTable2();
             }
 
             if (e.EventType == EventType.Order)
             {
-                yield return e.characters.GetComponent<EnemyMovement>().Order(dialogueUI, e);
+                for (int i = 0; i < e.dialogueObject.dialogueClasses.Length; i++)
+                {
+                    yield return e.characters.GetComponent<EnemyMovement>().Order(dialogueUI, e);
+                }
+                
             }
 
             if (e.EventType == EventType.GoOut)

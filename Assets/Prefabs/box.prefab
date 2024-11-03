@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6251812515203166328}
   - component: {fileID: 1405405131477707213}
   - component: {fileID: 6866282583543154308}
-  - component: {fileID: 1161846714787847697}
   - component: {fileID: 2375871289531005952}
   m_Layer: 0
   m_Name: box
@@ -99,21 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e434d94a3cc299d41989f5b4def83108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1161846714787847697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526063105124706215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46bd3ab02ba97b04f9105fd4d0e3c44a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredient: {fileID: 3000468275168462413, guid: 17a33ea5e6d6e8d4d8dcaa9b685351ea, type: 3}
-  ingradItem: {fileID: 3000468275168462413, guid: 17a33ea5e6d6e8d4d8dcaa9b685351ea, type: 3}
-  indexOnTable: 0
+  getIce: 0
+  ingredientType: 0
 --- !u!61 &2375871289531005952
 BoxCollider2D:
   m_ObjectHideFlags: 0

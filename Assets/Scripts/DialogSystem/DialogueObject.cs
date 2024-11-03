@@ -18,8 +18,7 @@ public class dialogueClass
 {
     public string dialogue;
     public DialogType type;
-    public IngredientGen ingredient;
-    //public EnemyMovement speakersId;
+    public Ingredient ingredient;
 }
 
 public enum DialogType { notOrder, order }
