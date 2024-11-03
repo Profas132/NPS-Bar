@@ -25,7 +25,6 @@ public class pointAndClickMove : MonoBehaviour
         if (Input.GetMouseButton(0) && CanMove)
         {
             targetPosition = mousePosition;
-            Debug.Log(targetPosition);
         }
         
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
