@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     }
     void Update()
     {
+        //Debug.Log(PlayerPrefs.GetFloat("SoundValue", 50f) / 100f);
         audioSource.volume = PlayerPrefs.GetFloat("SoundValue", 50f) / 100f;
     }
 }
