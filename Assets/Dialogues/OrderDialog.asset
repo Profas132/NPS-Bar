@@ -10,12 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73527ca97f477b142aee1eec0290a1ef, type: 3}
-  m_Name: New Dialogue Object
+  m_Name: OrderDialog
   m_EditorClassIdentifier: 
-  dialogueClasses:
-  - dialogue: "\u042F \u043F\u0435\u0440\u0432\u044B\u0439"
-    speakersId: {fileID: 0}
-  - dialogue: "\u041D\u0435\u0442 \u044F \u043F\u0435\u0440\u0432\u044B\u0439"
-    speakersId: {fileID: 0}
-  - dialogue: "\u0445\u043E\u0440\u043E\u0448\u043E \u044F \u0432\u0442\u043E\u0440\u043E\u0439"
-    speakersId: {fileID: 0}
+  dialogueClasses: []

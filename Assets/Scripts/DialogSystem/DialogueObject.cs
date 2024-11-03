@@ -17,6 +17,10 @@ public class DialogueObject : ScriptableObject
 public class dialogueClass
 {
     public string dialogue;
-    public EnemyMovement speakersId;
+    public DialogType type;
+    public IngredientGen ingredient;
+    //public EnemyMovement speakersId;
 }
+
+public enum DialogType { notOrder, order }
 

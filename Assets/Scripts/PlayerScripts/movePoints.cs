@@ -31,7 +31,4 @@ public class movePoints : MonoBehaviour
             Debug.Log("Налил воды");
         }
     }
-
-
-
 }
