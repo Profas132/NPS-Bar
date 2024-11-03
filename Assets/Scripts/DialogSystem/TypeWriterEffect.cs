@@ -7,6 +7,7 @@ public class TypeWriterEffect : MonoBehaviour
 {
     [SerializeField] private float typewriterSpeed = 50f;
     public bool InWork = false;
+
     public Coroutine Run(string textToType, TMP_Text textlabel)
     {
         return StartCoroutine(TypeText(textToType, textlabel));
@@ -20,6 +21,7 @@ public class TypeWriterEffect : MonoBehaviour
         
         float t = 0;
         int charIndex = 0;
+
         while (charIndex < textToType.Length)
         {
             t += Time.deltaTime * typewriterSpeed;
@@ -30,10 +32,12 @@ public class TypeWriterEffect : MonoBehaviour
 
             yield return null;
         }
+
         while (!Input.anyKey)
         {
             yield return null;
         }
+
         yield return new WaitForSeconds(1);
         textlabel.GetComponentInParent<CanDissapear>().Hide();
         textlabel.text = string.Empty;

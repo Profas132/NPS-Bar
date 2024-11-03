@@ -1,30 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-
-public enum EventType {
-    GoToTable, GoOut, Talk, Order
-}
+public enum EventType {GoToTable, GoOut, Talk, Order}
 
 [Serializable]
 public class Event
 {
     public EventType EventType;
-    public int characterId;
+    public GameObject characters;
+    public TMP_Text TMP_Texts;
+    public DialogueObject dialogueObject;
 }
-
 
 public class GameManager : MonoBehaviour
 {
     public Event[] events;
-    [SerializeField] private GameObject[] characters;
     private DialogueUI dialogueUI;
-
     [SerializeField] private Transform outdoor;
     [SerializeField] private Transform barStage;
-
 
     private void Awake()
     {
@@ -35,31 +31,30 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GoThroughEvents());
     }
 
-
     private IEnumerator GoThroughEvents()
     {
         foreach (var e in events)
         {
             if (e.EventType == EventType.Talk)
             {
-                yield return dialogueUI.ShowDialogue();
+                yield return dialogueUI.ShowDialogue(e.TMP_Texts, e.dialogueObject);
             }
 
             if (e.EventType == EventType.GoToTable)
             {
-                Debug.Log(characters[e.characterId]);
-                yield return characters[e.characterId].GetComponent<EnemyMovement>().GoToTable();
-                
+                Debug.Log(events);
+                yield return e.characters.GetComponent<EnemyMovement>().GoToTable();   
+            }
+
+            if (e.EventType == EventType.Order)
+            {
+                yield return e.characters.GetComponent<EnemyMovement>().Order(dialogueUI, e);
             }
 
             if (e.EventType == EventType.GoOut)
             {
-                yield return characters[e.characterId].GetComponent<EnemyMovement>().GoOut();
-                
+                yield return e.characters.GetComponent<EnemyMovement>().GoOut();
             }
         }
     }
-
-  
-
 }

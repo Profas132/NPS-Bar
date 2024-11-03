@@ -8,8 +8,7 @@ using static UnityEditor.Progress;
 public class DialogueUI : MonoBehaviour
 {
     private TypeWriterEffect typeWriterEffect;
-    [SerializeField] private DialogueObject dialogueObject;
-    [SerializeField] private TMP_Text[] TMP_Texts;
+    //[SerializeField] private DialogueObject dialogueObject;
     private int linesSaid = -1;
 
     private void Start()
@@ -18,10 +17,17 @@ public class DialogueUI : MonoBehaviour
         //ShowDialogue();
     }
 
-    public Coroutine ShowDialogue()
+    public Coroutine ShowDialogue(TMP_Text texts, DialogueObject dialogueObject)
     {
         linesSaid++;
         Debug.Log("52");
-        return typeWriterEffect.Run(dialogueObject.dialogueClasses[linesSaid].dialogue, TMP_Texts[dialogueObject.dialogueClasses[linesSaid].speakersId]);
+        return typeWriterEffect.Run(dialogueObject.dialogueClasses[linesSaid].dialogue, texts);
+    }
+
+    public Coroutine OrderControl(TMP_Text texts, DialogueObject dialogueObject)
+    {
+        linesSaid++;
+        Debug.Log("Заказ");
+        return typeWriterEffect.Run(dialogueObject.dialogueClasses[linesSaid].dialogue, texts);
     }
 }

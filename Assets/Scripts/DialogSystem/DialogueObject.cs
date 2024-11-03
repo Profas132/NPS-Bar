@@ -17,6 +17,6 @@ public class DialogueObject : ScriptableObject
 public class dialogueClass
 {
     public string dialogue;
-    public int speakersId;
+    public EnemyMovement speakersId;
 }
 

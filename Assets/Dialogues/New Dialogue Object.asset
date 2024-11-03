@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueClasses:
   - dialogue: "\u042F \u043F\u0435\u0440\u0432\u044B\u0439"
-    speakersId: 0
+    speakersId: {fileID: 0}
   - dialogue: "\u041D\u0435\u0442 \u044F \u043F\u0435\u0440\u0432\u044B\u0439"
-    speakersId: 1
+    speakersId: {fileID: 0}
   - dialogue: "\u0445\u043E\u0440\u043E\u0448\u043E \u044F \u0432\u0442\u043E\u0440\u043E\u0439"
-    speakersId: 0
+    speakersId: {fileID: 0}
