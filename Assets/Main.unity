@@ -728,6 +728,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1420415441}
     m_Modifications:
+    - target: {fileID: 1337966916182922364, guid: 582da82e324061742a9128172f11524b, type: 3}
+      propertyPath: enemySpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2493398589175665319, guid: 582da82e324061742a9128172f11524b, type: 3}
       propertyPath: m_Name
       value: Capsule (4)
@@ -1127,6 +1131,8 @@ MonoBehaviour:
   events:
   - EventType: 0
     characterId: 0
+  - EventType: 1
+    characterId: 1
   characters:
   - {fileID: 1745152548}
   - {fileID: 1656674467}
