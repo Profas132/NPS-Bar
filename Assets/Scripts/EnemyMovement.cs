@@ -12,10 +12,12 @@ public class EnemyMovement : MonoBehaviour
     static public Transform barStage2;
     [SerializeField] float enemySpeed = 0.01f;
     private AudioSource stepAudio;
+    private Animator animator;
 
     private void Start()
     {
         stepAudio = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     public Coroutine GoToTable1()
@@ -42,6 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
     public Coroutine Order(DialogueUI dialogueUI, Event events, dialogueClass dialogueClass)
     {
+        if(animator) animator.SetBool("talk", true);
         return StartCoroutine(StartToOrder(dialogueUI, events, dialogueClass));
     }
 
