@@ -13,11 +13,12 @@ public class pointAndClickMove : MonoBehaviour
     public Vector2 mousePosition;
     public Vector2 targetPosition;
     public static bool CanMove = false;
+    float starty;
     [SerializeField][Range(0, 0.1f)] private float speed;
 
     private void Start()
     {
-        targetPosition = transform.position;
+        starty = transform.position.y;        
     }
 
     private void FixedUpdate()
@@ -26,7 +27,7 @@ public class pointAndClickMove : MonoBehaviour
         {
             targetPosition = mousePosition;
         }
-        
+        targetPosition = new Vector2(targetPosition.x, starty);
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
     }
