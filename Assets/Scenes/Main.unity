@@ -1126,10 +1126,7 @@ PrefabInstance:
       objectReference: {fileID: 1570651900}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6251812515203166328, guid: ad4d31d14b228f849b5848d6fc392e3e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1570651900}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad4d31d14b228f849b5848d6fc392e3e, type: 3}
 --- !u!4 &563320446 stripped
@@ -1620,6 +1617,40 @@ MonoBehaviour:
   outdoor: {fileID: 1767833897}
   barStage1: {fileID: 1637656902}
   barStage2: {fileID: 1086817385}
+  cup: {fileID: 1570651901}
+  spriteByIngreds:
+  - Ingredient:
+      ingredientType: 0
+      withIce: 0
+    Sprite: {fileID: 0}
+  - Ingredient:
+      ingredientType: 2
+      withIce: 0
+    Sprite: {fileID: 21300000, guid: a43a9eddadb9c4d4bacc519350f6b137, type: 3}
+  - Ingredient:
+      ingredientType: 2
+      withIce: 1
+    Sprite: {fileID: 21300000, guid: 10dd317b8b30eb9428ba1cb0ee6a8a88, type: 3}
+  - Ingredient:
+      ingredientType: 1
+      withIce: 0
+    Sprite: {fileID: 21300000, guid: ce5a446a2c29c6d4d856b0bbd61a81aa, type: 3}
+  - Ingredient:
+      ingredientType: 1
+      withIce: 1
+    Sprite: {fileID: 21300000, guid: 8fc6e6b225397c6429a24d7ebbfa0934, type: 3}
+  - Ingredient:
+      ingredientType: 3
+      withIce: 0
+    Sprite: {fileID: 21300000, guid: 436da0e520d02e34d9f7720d081f6e39, type: 3}
+  - Ingredient:
+      ingredientType: 5
+      withIce: 0
+    Sprite: {fileID: 21300000, guid: 4f76b1fa1b1791043b8f864b24516cae, type: 3}
+  - Ingredient:
+      ingredientType: 4
+      withIce: 0
+    Sprite: {fileID: 21300000, guid: 34499597bbd7a3e46a86136a1a5408e4, type: 3}
 --- !u!4 &643347570
 Transform:
   m_ObjectHideFlags: 0
@@ -4361,8 +4392,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1570651900}
+  - component: {fileID: 1570651901}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Cup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4376,13 +4408,65 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570651899}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.005, y: 0.174, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.106518745, y: -3.3717632, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 157035341}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1570651901
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570651899}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!4 &1574899944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2232729863735598026, guid: 25bb627c1f7c643479479ae31d3fcf93, type: 3}
@@ -5813,6 +5897,7 @@ SceneRoots:
   - {fileID: 780934864}
   - {fileID: 2073161135}
   - {fileID: 570030986}
+  - {fileID: 1570651900}
   - {fileID: 955102370}
   - {fileID: 8096547480031755990}
   - {fileID: 941596952}
