@@ -50,8 +50,3 @@ MonoBehaviour:
     ingredient:
       ingredientType: 0
       withIce: 0
-  - dialogue: "\u0428\u0438\u0440\u043B\u0438! \u0410 \u0448\u043B\u044F\u043F\u0430?"
-    type: 0
-    ingredient:
-      ingredientType: 0
-      withIce: 0
