@@ -15,16 +15,33 @@ public class Event
     public DialogueObject dialogueObject;
 }
 
+[Serializable]
+public class SpriteByIngred
+{
+    public Ingredient Ingredient;
+    public Sprite Sprite;
+}
+
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public Event[] events;
     private DialogueUI dialogueUI;
     [SerializeField] private Transform outdoor;
     [SerializeField] private Transform barStage1;
     [SerializeField] private Transform barStage2;
+    [SerializeField] private SpriteRenderer cup;
+    [SerializeField] public SpriteByIngred[] spriteByIngreds;
 
     private void Start()
     {
+        
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        movePoints.Cup = cup;
         EnemyMovement.outdoor = outdoor;
         EnemyMovement.barStage1 = barStage1;
         EnemyMovement.barStage2 = barStage2;
