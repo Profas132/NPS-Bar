@@ -11,6 +11,12 @@ public class EnemyMovement : MonoBehaviour
     static public Transform barStage1;
     static public Transform barStage2;
     [SerializeField] float enemySpeed = 0.01f;
+    private AudioSource stepAudio;
+
+    private void Start()
+    {
+        stepAudio = GetComponent<AudioSource>();
+    }
 
     public Coroutine GoToTable1()
     {        
@@ -34,17 +40,18 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public Coroutine Order(DialogueUI dialogueUI, Event events)
+    public Coroutine Order(DialogueUI dialogueUI, Event events, dialogueClass dialogueClass)
     {
-        return StartCoroutine(StartToOrder(dialogueUI, events));
+        return StartCoroutine(StartToOrder(dialogueUI, events, dialogueClass));
     }
 
-    private IEnumerator StartToOrder(DialogueUI dialogueUI, Event events)
+    private IEnumerator StartToOrder(DialogueUI dialogueUI, Event events, dialogueClass dialogueClass)
     {
-        yield return dialogueUI.OrderControl(events);
+        yield return dialogueUI.OrderControl(events, dialogueClass);
     }
 
-    
+    public void PlayStep()
+    {
 
-    
+    }
 }

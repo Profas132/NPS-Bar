@@ -5,9 +5,9 @@ using UnityEngine;
 public class movePoints : MonoBehaviour
 {
     public static movePoints LastClick;
-    [SerializeField] bool getIce;
-    [SerializeField] IngredientType ingredientType;
-
+    [SerializeField] private bool getIce;
+    [SerializeField] private IngredientType ingredientType;
+    [SerializeField] private Transform Cup;
 
     private void OnMouseOver()
     {
@@ -21,7 +21,6 @@ public class movePoints : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
     }
 
-
     private void OnMouseDown()
     {
         LastClick = GetComponent<movePoints>();
@@ -31,16 +30,14 @@ public class movePoints : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && LastClick == this.GetComponent<movePoints>())
         {
-
-
             GetComponent<AudioSource>().Play();
 
-            TypeWriterEffect.currentIngredient.ingredientType = ingredientType;
+                
+
             if (getIce)
             {
                 TypeWriterEffect.currentIngredient.withIce = !TypeWriterEffect.currentIngredient.withIce;
-            }
-            
+            } else TypeWriterEffect.currentIngredient.ingredientType = ingredientType;
         }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 020ffdef6a2f75e4c8b4d1e610d46ee9
+guid: 53c4e33c29c5c0343a736c958cd7ad10
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Equilibrist
+  - Brusnika
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

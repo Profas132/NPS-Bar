@@ -51,13 +51,11 @@ public class GameManager : MonoBehaviour
 
             if (e.EventType == EventType.Order)
             {
-                
-                for (int i = 0; i < e.dialogueObject.dialogueClasses.Length; i++)
+                foreach (var i in e.dialogueObject.dialogueClasses)
                 {
                     SoundManager.instance.playDialogueSound();
-                    yield return e.characters.GetComponent<EnemyMovement>().Order(dialogueUI, e);
+                    yield return e.characters.GetComponent<EnemyMovement>().Order(dialogueUI, e, i);
                 }
-                
             }
 
             if (e.EventType == EventType.GoOut)

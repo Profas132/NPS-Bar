@@ -20,7 +20,7 @@ MonoBehaviour:
       \u043D\u0438\u0431\u0443\u0434\u044C?"
     type: 1
     ingredient:
-      ingredientType: 1
+      ingredientType: 4
       withIce: 0
   - dialogue: "\u0427\u0438\u043A- \u0447\u0438\u043A!"
     type: 0
