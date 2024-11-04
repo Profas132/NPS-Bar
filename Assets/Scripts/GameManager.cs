@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform barStage2;
     [SerializeField] private SpriteRenderer cup;
     [SerializeField] public SpriteByIngred[] spriteByIngreds;
+    [SerializeField] private UnityEngine.UI.Image endgame;
 
     private void Start()
     {
@@ -82,5 +83,7 @@ public class GameManager : MonoBehaviour
                 SoundManager.instance.playDoorBellSound();
             }
         }
+        endgame.enabled = true;
+
     }
 }
